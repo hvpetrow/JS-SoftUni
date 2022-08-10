@@ -1,0 +1,22 @@
+[
+    {
+        "title": "First Article",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam ex dolore fuga fugiat commodi, excepturi eius similique recusandae iure voluptatibus nesciunt officia cumque esse consequuntur eaque expedita, saepe quod.",
+        "author": "John Smith",
+        "color": "red"
+    },
+    {
+        "title": "Second Article",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam ex dolore fuga fugiat commodi, excepturi eius similique recusandae iure voluptatibus nesciunt officia cumque esse consequuntur eaque expedita, saepe quod.",
+        "author": "Marta Berry",
+        "color": "green"
+    },
+    {
+        "title": "Third Article",
+        "content": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas quam ex dolore fuga fugiat commodi, excepturi eius similique recusandae iure voluptatibus nesciunt officia cumque esse consequuntur eaque expedita, saepe quod.",
+        "author": "Ray Johnson",
+        "color": "blue"
+
+    }
+
+]
