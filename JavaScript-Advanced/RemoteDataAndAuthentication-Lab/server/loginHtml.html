@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-block">
+        <h1>Registration</h1>
+        <form action="/" id="form">
+          <hr>
+          <div class="account-type">
+            <input type="radio" value="none" id="radioOne" name="account" checked/>
+            <label for="radioOne" class="radio">Personal</label>
+            <input type="radio" value="none" id="radioTwo" name="account" />
+            <label for="radioTwo" class="radio">Company</label>
+          </div>
+          <hr>
+          <label id="icon" for="name"><i class="fas fa-envelope"></i></label>
+          <input type="text" name="email" id="name" placeholder="Email" required/>
+          <label id="icon" for="name"><i class="fas fa-user"></i></label>
+          <input type="text" name="username" id="name" placeholder="Name" required/>
+          <label id="icon" for="name"><i class="fas fa-unlock-alt"></i></label>
+          <input type="password" name="password" id="name" placeholder="Password" required/>
+          <hr>
+          <div class="gender">
+            <input type="radio" value="none" id="male" name="gender" checked/>
+            <label for="male" class="radio">Male</label>
+            <input type="radio" value="none" id="female" name="gender" />
+            <label for="female" class="radio">Female</label>
+          </div>
+          <hr>
+          <div class="btn-block">
+            <p>By clicking Register, you agree on our <a href="https://www.w3docs.com/privacy-policy">Privacy Policy for W3Docs</a>.</p>
+            <button type="submit" href="/">Submit</button>
+          </div>
+        </form>
+      </div>            
+      <script>
+          let formElement = document.getElementById('form');
+          formElement.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                let formData = new FormData(formElement);
+                
+                let username = formData.get('username');
+                let password = formData.get('password');
+
+                let url = 'http://localhost:3030/users/login';
+                let data = {
+                    email: username,
+                    password
+                };
+
+                fetch('http://localhost:3030/users/login',{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(res => res.json())
+                .then(user => {
+                    console.log(user);
+                    localStorage.setItem('token',user.accessToken);
+                    localStorage.setItem('user',user.username);
+                    localStorage.setItem('_id',user._id);
+                })
+                .catch(error => {
+                    console.log(error);
+                })              
+          });
+      </script>
+</body>
+</html>
